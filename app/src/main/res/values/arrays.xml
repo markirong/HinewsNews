@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="channel">
+        <item>头条1</item>
+        <item>24小时1</item>
+        <item>刘赐贵集1</item>
+        <item>沈晓明集1</item>
+        <item>权威发布</item>
+        <item>人事任免</item>
+        <item>hainan</item>
+        <item>直播</item>
+        <item>舆情</item>
+        <item>辟谣</item>
+        <item>策划</item>
+        <item>拍客</item>
+        <item>饭店</item>
+    </string-array>
+
+    <string-array name="recommentChannel">
+        <item>十九大1</item>
+        <item>南海1</item>
+        <item>应急管理1</item>
+        <item>血液中心</item>
+    </string-array>
+    <string-array name="districtChannel">
+        <item>海口1</item>
+        <item>三亚1</item>
+        <item>三沙1</item>
+        <item>儋州</item>
+        <item>琼海</item>
+        <item>文昌</item>
+        <item>万宁</item>
+        <item>东方</item>
+        <item>五指山</item>
+        <item>乐东</item>
+        <item>澄迈</item>
+        <item>临高</item>
+        <item>定安</item>
+        <item>屯昌</item>
+        <item>陵水</item>
+        <item>昌江</item>
+        <item>保亭</item>
+        <item>白沙</item>
+        <item>琼中</item>
+    </string-array>
+
+    <string-array name="hot">
+        <item>nanhaiwang1</item>
+        <item>nanhaiwang2</item>
+        <item>nanhaiwang3</item>
+        <item>nanhaiwang4</item>
+        <item>nanhaiwang5</item>
+        <item>nanhaiwang6</item>
+        <item>nanhaiwang7</item>
+        <item>nanhaiwang8</item>
+    </string-array>
+
+
+
+</resources>
