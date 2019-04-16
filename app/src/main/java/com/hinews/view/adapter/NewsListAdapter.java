@@ -125,11 +125,12 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
                 Glide.with(UIUtils.getContext()).load(item.getItems().get(1).getImg().get(0)).crossFade()
                         .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader2);
 
+
                 break;
 
-//                case LEADERS_ROW:   // 书籍省长
-//                ImageView iv_leader1 =helper.getView(R.id.iv_leader1);
-//                ImageView iv_leader2 =helper.getView(R.id.iv_leader2);
+//                case :   // 书籍省长
+////                ImageView iv_leader1 =helper.getView(R.id.iv_leader1);
+////                ImageView iv_leader2 =helper.getView(R.id.iv_leader2);
 //
 //                Glide.with(UIUtils.getContext()).load(item.getItems().get(0).getImg().get(0)).crossFade()
 //                        .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader1);
