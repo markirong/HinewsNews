@@ -63,8 +63,8 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
         addItemType(NEWS_HOT_LIST, R.layout.item_news_hot_list);
         addItemType(NEWS_HOT_TEXT, R.layout.item_hot_text_srcoll);
         addItemType(SECOND_LANMU, R.layout.item_hot_text_srcoll);
-        addItemType(BANNER, R.layout.item_hot_text_srcoll);
         addItemType(BANNER_BIG, R.layout.item_hot_text_srcoll);
+        addItemType(BANNER, R.layout.item_banner);
         addItemType(TITLELAB, R.layout.item_hot_text_srcoll);
         addItemType(HOURSENEWS, R.layout.item_hot_text_srcoll);
         addItemType(LEADERS_ROW, R.layout.item_leader_row);
@@ -73,8 +73,9 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
     @Override
     protected void convert(BaseViewHolder helper, ContentBeans item) {
         switch (helper.getItemViewType()){
-            case NEWS_HOT_LIST:    //
-                setHotList(helper,item);
+            case NEWS_HOT_LIST:    //loop
+//                setHotList(helper,item);
+                setHotList(helper,getData());
                 break;
             case NEWS_VIDEO:  //视频
                 setScrollText(helper);
@@ -124,20 +125,15 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
                         .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader1);
                 Glide.with(UIUtils.getContext()).load(item.getItems().get(1).getImg().get(0)).crossFade()
                         .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader2);
+                break;
+            case  BANNER:   // 通栏banner
+                ImageView iv_banner =helper.getView(R.id.iv_banner);
+
+                Glide.with(UIUtils.getContext()).load(item.getImg().get(0)).crossFade()
+                        .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_banner);
 
 
                 break;
-
-//                case :   // 书籍省长
-////                ImageView iv_leader1 =helper.getView(R.id.iv_leader1);
-////                ImageView iv_leader2 =helper.getView(R.id.iv_leader2);
-//
-//                Glide.with(UIUtils.getContext()).load(item.getItems().get(0).getImg().get(0)).crossFade()
-//                        .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader1);
-//                Glide.with(UIUtils.getContext()).load(item.getItems().get(1).getImg().get(0)).crossFade()
-//                        .diskCacheStrategy(DiskCacheStrategy.NONE).into(iv_leader2);
-//
-//                break;
         }
         //
         helper.addOnClickListener(R.id.iv_delete);
@@ -173,7 +169,7 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
             case 4:
                 return TITLELAB;
             case 5:
-                return NEWS_HOT_TEXT;
+                return BANNER ;
             case 6:
                 return NEWS_SUBJECT;
             case 7:
@@ -189,16 +185,17 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
              case 12:
                 return SECOND_LANMU;
             case 13:
-                return BANNER;
+                return NEWS_HOT_TEXT;
         }
         return super.getItemViewType(position);
     }
 
-    private void setHotList(BaseViewHolder helper , ContentBeans contentBean){
+    private void setHotList(BaseViewHolder helper ,List<ContentBeans>  contentBean){
             RecyclerView recyclerView = helper.getView(R.id.recyclerView);
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             if (adapter == null){
                 new PagerSnapHelper().attachToRecyclerView(recyclerView);
+
                 final MyHorizontalRefreshLayout refreshLayout = helper.getView(R.id.refreshLayout);
                 refreshLayout.setRefreshHeader(new HotRefrechHead(UIUtils.getContext()), HorizontalRefreshLayout.RIGHT);
                 refreshLayout.setRefreshCallback(new RefreshCallBack() {
@@ -211,7 +208,8 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
                     }
                 });
                 //
-                final NewsHotHorizontalListAdapter hotAdapter = new NewsHotHorizontalListAdapter(null);
+//                final NewsHotHorizontalListAdapter hotAdapter = new NewsHotHorizontalListAdapter(null);
+                final NewsHotHorizontalListAdapter hotAdapter = new NewsHotHorizontalListAdapter(contentBean);
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
                 recyclerView.setAdapter(hotAdapter);
                 refreshLayout.setLayoutManager(linearLayoutManager);

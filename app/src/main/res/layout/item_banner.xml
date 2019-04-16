@@ -3,46 +3,28 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="118dp">
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/llt_info"
+
+    <ImageView
+        android:id="@+id/iv_banner"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/bg_motherland"
+        android:scaleType="centerCrop"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:layout_height="75dp"
 
-        <ImageView
-            android:id="@+id/iv_leader1"
-            android:layout_marginTop="3dp"
-            android:src="@drawable/bg_motherland"
-            android:scaleType="centerCrop"
-            android:layout_width="0dp"
-            android:layout_height="88dp"
-            android:layout_weight="1"
-            android:layout_margin="12dp"
-            />
+        />
 
-
-        <ImageView
-            android:id="@+id/iv_leader2"
-            android:layout_marginTop="3dp"
-            android:src="@drawable/bg_motherland"
-            android:scaleType="centerCrop"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="88dp"
-            android:layout_margin="12dp"
-            />
-
-    </LinearLayout>
 
     <View
         android:id="@+id/view"
         android:layout_marginTop="10dp"
-        android:layout_below="@+id/llt_info"
+        android:layout_below="@+id/iv_banner"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/grey_bg"/>
+        android:background="@color/grey_bg"
+        />
 
 </RelativeLayout>

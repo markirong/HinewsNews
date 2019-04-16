@@ -38,7 +38,10 @@
                 android:layout_height="wrap_content"
                 android:textSize="11sp"
                 android:textColor="@color/white"
-                android:text="澎湃新闻"/>
+                android:text="澎湃新闻"
+                android:visibility="gone"
+
+                />
 
             <TextView
                 android:id="@+id/tv_date"
@@ -47,7 +50,9 @@
                 android:textSize="11sp"
                 android:layout_marginLeft="6dp"
                 android:textColor="@color/white"
-                android:text="两天前"/>
+                android:text="两天前"
+                android:visibility="gone"
+                />
 
             <TextView
                 android:id="@+id/tv_read"
@@ -56,7 +61,9 @@
                 android:textSize="11sp"
                 android:layout_marginLeft="6dp"
                 android:textColor="@color/white"
-                android:text="1008阅"/>
+                android:text="1008阅"
+                android:visibility="gone"
+                />
 
 
         </LinearLayout>
@@ -88,7 +95,10 @@
             android:padding="3dp"
             android:visibility="gone"
             android:background="@drawable/bg_rectangle_circular_red"
-            android:textSize="11sp"/>
+            android:textSize="11sp"
+
+
+            />
 
     </RelativeLayout>
 

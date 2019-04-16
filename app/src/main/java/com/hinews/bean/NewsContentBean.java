@@ -124,6 +124,7 @@ public class NewsContentBean {
         public int getItemType() {
             return Integer.parseInt(typeid);
         }
+
         public static class ItemsBean {
             private String title;
             private String listtype;
