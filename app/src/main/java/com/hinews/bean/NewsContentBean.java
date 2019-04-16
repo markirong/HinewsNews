@@ -125,7 +125,8 @@ public class NewsContentBean {
             return Integer.parseInt(typeid);
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements MultiItemEntity{
+
             private String title;
             private String listtype;
             private String newsid;
@@ -233,6 +234,11 @@ public class NewsContentBean {
 
             public void setImg(List<String> img) {
                 this.img = img;
+            }
+
+            @Override
+            public int getItemType() {
+                return Integer.parseInt(typeid);
             }
         }
     }

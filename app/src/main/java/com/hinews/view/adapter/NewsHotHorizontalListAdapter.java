@@ -10,25 +10,41 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
 import com.hinews.R;
 import com.hinews.bean.NewsContentBean;
+import com.hinews.bean.NewsContentBean.ContentBeans.ItemsBean;
 import com.hinews.utils.UIUtils;
 import java.util.List;
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-public class NewsHotHorizontalListAdapter extends BaseMultiItemQuickAdapter<NewsContentBean.ContentBeans, BaseViewHolder>  {
+public class NewsHotHorizontalListAdapter extends BaseMultiItemQuickAdapter<ItemsBean, BaseViewHolder>  {
     private int width;
     private  static  int VEDIO_TYPE = 100;
     private  static  int TEXT_TYPE = 200;
-    public NewsHotHorizontalListAdapter(@Nullable List<NewsContentBean.ContentBeans> data) {
+    public NewsHotHorizontalListAdapter(@Nullable List<ItemsBean> data) {
         super(data);
         width = UIUtils.getResource().getDisplayMetrics().widthPixels - UIUtils.dip2Px(35);
         addItemType(TEXT_TYPE, R.layout.item_news_hot_image);
         addItemType(VEDIO_TYPE,R.layout.item_news_hot_video);
     }
+    
 
     @Override
-    protected void convert(BaseViewHolder helper, NewsContentBean.ContentBeans item) {
+    public int getItemCount() {
+        return getData().size();
+    }
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 1){
+            return VEDIO_TYPE;
+        }else {
+            return TEXT_TYPE;
+        }
+
+    }
+
+    @Override
+    protected void convert(BaseViewHolder helper, ItemsBean item) {
         helper.getConvertView().getLayoutParams().width = width;
         if (helper.getItemViewType() == VEDIO_TYPE){
             JZVideoPlayerStandard videoPlayer = helper.getView(R.id.video_player);
@@ -55,17 +71,4 @@ public class NewsHotHorizontalListAdapter extends BaseMultiItemQuickAdapter<News
         }
     }
 
-    @Override
-    public int getItemCount() {
-        return getData().size();
-    }
-    @Override
-    public int getItemViewType(int position) {
-        if (position == 1){
-            return VEDIO_TYPE;
-        }else {
-            return TEXT_TYPE;
-        }
-
-    }
 }

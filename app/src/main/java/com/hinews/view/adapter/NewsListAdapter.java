@@ -75,7 +75,7 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
         switch (helper.getItemViewType()){
             case NEWS_HOT_LIST:    //loop
 //                setHotList(helper,item);
-                setHotList(helper,getData());
+                setHotList(helper,item.getItems());
                 break;
             case NEWS_VIDEO:  //视频
                 setScrollText(helper);
@@ -190,7 +190,7 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
         return super.getItemViewType(position);
     }
 
-    private void setHotList(BaseViewHolder helper ,List<ContentBeans>  contentBean){
+    private void setHotList(BaseViewHolder helper ,List<ContentBeans.ItemsBean>  contentBean){
             RecyclerView recyclerView = helper.getView(R.id.recyclerView);
             RecyclerView.Adapter adapter = recyclerView.getAdapter();
             if (adapter == null){
