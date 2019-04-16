@@ -227,6 +227,7 @@ public class NewsListAdapter extends BaseMultiItemQuickAdapter<ContentBeans,Base
 
     }
 
+
     @Override
     public int getItemCount() {
         return getData().size();
